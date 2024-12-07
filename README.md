@@ -18,3 +18,7 @@ run code
 ```
 java -classpath '.:../../dist/GridWorldCode/gridworld.jar' BugRunner
 ```
+# credit
+Credit to Cay Horstmann
+
+pinned upstream source: https://web.archive.org/web/20241207165401/https://horstmann.com/gridworld/
