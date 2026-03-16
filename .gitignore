@@ -21,3 +21,5 @@ dist/*
 # ignore for now
 .idea/*
 
+# IntelliJ
+out/
