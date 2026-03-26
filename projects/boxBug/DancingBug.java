@@ -28,6 +28,7 @@ public class DancingBug extends Bug
 {
     private int[] danceMoves;
     private int j;
+    private boolean keepGoing;
 
     /**
      * Constructs a box bug that traces a square of a given side length
@@ -37,6 +38,7 @@ public class DancingBug extends Bug
     {
         danceMoves = myDanceMoves;
         j = 0;
+        keepGoing = true;
     }
 
     /**
@@ -44,28 +46,38 @@ public class DancingBug extends Bug
      */
     public void act()
     {
-        System.out.println("Beginning");
-        for (int i = 0; i < danceMoves[j]; i++) {
-            turn();
-        }
-        super.act();
-        j = (j == danceMoves.length - 1) ? 0 : j+1;
-        switch (j) {
-            case 0:
-                this.setColor(Color.BLACK);
-                break;
-            case 1:
-                this.setColor(Color.BLUE);
-                break;
-            case 2:
-                this.setColor(Color.CYAN);
-                break;
-            case 3:
-                this.setColor(Color.RED);
-                break;
-            default:
-                System.out.println("ERROR in switch case statement");
-                break;
+        if (keepGoing) {
+            System.out.println("Beginning");
+            super.act();
+            move();
+            for (int i = 0; i < danceMoves[j]; i++) {
+                turn();
+            }
+
+            if (j == danceMoves.length - 1) {
+                j = 0;
+                keepGoing = false; //make the bug stop for now. can comment this line out if you want the bug to keep going
+            } else {
+                j = j + 1;
+            }
+
+            switch (j) {
+                case 0:
+                    this.setColor(Color.BLACK);
+                    break;
+                case 1:
+                    this.setColor(Color.BLUE);
+                    break;
+                case 2:
+                    this.setColor(Color.CYAN);
+                    break;
+                case 3:
+                    this.setColor(Color.RED);
+                    break;
+                default:
+                    System.out.println("ERROR in switch case statement");
+                    break;
+            }
         }
     }
 }
