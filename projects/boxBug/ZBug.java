@@ -26,6 +26,8 @@ public class ZBug extends Bug
 {
     private int steps;
     private final int sideLength;
+    private int turns;
+    private int sides;
 
     /**
      * Constructs a box bug that traces a square of a given side length
@@ -35,6 +37,9 @@ public class ZBug extends Bug
     {
         steps = 0;
         sideLength = length;
+        this.setDirection(90);  // DONE: create enum of directions to use instead of int.
+                                // ANSWER: This is provided by Location.NORTHEAST etc.
+        turns = 3;
     }
 
     /**
@@ -42,15 +47,21 @@ public class ZBug extends Bug
      */
     public void act()
     {
-        if (steps < sideLength && canMove())
+        if (!canMove() || sides >= 3) {
+            //do nothing
+        }
+        else if (steps < sideLength)
         {
             move();
             steps++;
         }
         else
         {
-            turn();
-            turn();
+            for (int i = 0; i < turns; i++) {
+                turn();
+            }
+            turns = 5;
+            sides++;
             steps = 0;
         }
     }

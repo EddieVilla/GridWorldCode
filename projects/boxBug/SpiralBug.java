@@ -25,7 +25,7 @@ import info.gridworld.actor.Bug;
 public class SpiralBug extends Bug
 {
     private int steps;
-    private final int sideLength;
+    private int sideLength;
 
     /**
      * Constructs a box bug that traces a square of a given side length
@@ -50,7 +50,9 @@ public class SpiralBug extends Bug
         else
         {
             turn();
+            turn();
             steps = 0;
+            sideLength++;
         }
     }
 }
