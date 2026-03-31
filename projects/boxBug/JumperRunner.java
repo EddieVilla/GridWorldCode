@@ -18,8 +18,11 @@
 
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.ActorWorld;
+import info.gridworld.actor.Rock;
+import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
+import info.gridworld.grid.UnboundedGrid;
 
 import java.awt.Color;
 
@@ -31,12 +34,17 @@ public class JumperRunner
 {
     public static void main(String[] args)
     {
-        ActorWorld world = new ActorWorld();
+        BoundedGrid gr = new BoundedGrid(100,100);
+        ActorWorld world = new ActorWorld(gr);
         Jumper alice = new Jumper(6);
         alice.setColor(Color.ORANGE);
         Jumper charlie = new Jumper(6);
         charlie.setColor(Color.ORANGE);
         Jumper bob = new Jumper(3);
+        Rock rocky1 = new Rock();
+        Rock rocky2 = new Rock();
+//        rocky1.putSelfInGrid(gr, new Location(-1,5));
+//        rocky1.putSelfInGrid(gr, new Location(-1,8));
 
         world.add(new Location(7, 8), charlie);
         world.add(new Location(3, 4), alice);
