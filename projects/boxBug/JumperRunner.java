@@ -34,7 +34,7 @@ public class JumperRunner
 {
     public static void main(String[] args)
     {
-        BoundedGrid gr = new BoundedGrid(100,100);
+        BoundedGrid<Actor> gr = new BoundedGrid<Actor>(100,100);
         ActorWorld world = new ActorWorld(gr);
         Jumper alice = new Jumper(6);
         alice.setColor(Color.ORANGE);
@@ -43,7 +43,7 @@ public class JumperRunner
         Jumper bob = new Jumper(3);
         Rock rocky1 = new Rock();
         Rock rocky2 = new Rock();
-//        rocky1.putSelfInGrid(gr, new Location(-1,5));
+//        r@21ocky1.putSelfInGrid(gr, new Location(-1,5));
 //        rocky1.putSelfInGrid(gr, new Location(-1,8));
 
         world.add(new Location(7, 8), charlie);
