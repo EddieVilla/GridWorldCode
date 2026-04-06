@@ -65,10 +65,14 @@ public class Actor
     }
 
     public void darken() {
+        darkenAmount(DARKENING_FACTOR);
+    }
+
+    public void darkenAmount(double dFactor) {
         Color c = getColor();
-        int red = (int) (c.getRed() * (1 - DARKENING_FACTOR));
-        int green = (int) (c.getGreen() * (1 - DARKENING_FACTOR));
-        int blue = (int) (c.getBlue() * (1 - DARKENING_FACTOR));
+        int red = (int) (c.getRed() * (1 - dFactor));
+        int green = (int) (c.getGreen() * (1 - dFactor));
+        int blue = (int) (c.getBlue() * (1 - dFactor));
 
         setColor(new Color(red, green, blue));
     }
