@@ -53,11 +53,6 @@ public class Flower extends Actor
      */
     public void act()
     {
-        Color c = getColor();
-        int red = (int) (c.getRed() * (1 - DARKENING_FACTOR));
-        int green = (int) (c.getGreen() * (1 - DARKENING_FACTOR));
-        int blue = (int) (c.getBlue() * (1 - DARKENING_FACTOR));
-
-        setColor(new Color(red, green, blue));
+        darken();
     }
 }
